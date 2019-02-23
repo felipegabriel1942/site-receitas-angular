@@ -1,5 +1,6 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Receita } from 'src/app/model/receita.model';
+import { ReceitasService } from 'src/app/services/receitas.service';
 
 @Component({
   selector: 'app-lista-receitas',
@@ -8,23 +9,11 @@ import { Receita } from 'src/app/model/receita.model';
 })
 export class ListaReceitasComponent implements OnInit {
 
-  @Output() receitaFoiSelecionada = new EventEmitter<Receita>();
+  receitas: Receita[];
 
-  receitas: Receita[] = [
-    new Receita('MOLHO BRANCO PARA MACARRÃO',
-    'Molho branco para servir de acompanhamento para macarrão',
-    'https://img.itdg.com.br/tdg/images/recipes/000/008/072/96655/96655_original.jpg?mode=crop&width=710&height=400'),
-    new Receita('CREME DE MILHO',
-    'Creme feito com milho e leite',
-    'https://img.itdg.com.br/tdg/images/recipes/000/006/662/280258/280258_original.jpg?mode=crop&width=710&height=400')
-  ];
-  constructor() { }
+  constructor(private receitaService: ReceitasService) { }
 
   ngOnInit() {
+    this.receitas = this.receitaService.getReceitas();
   }
-
-  onReceitaSelecionada(receita: Receita) {
-    this.receitaFoiSelecionada.emit(receita);
-  }
-
 }

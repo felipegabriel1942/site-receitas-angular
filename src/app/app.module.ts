@@ -11,6 +11,7 @@ import { DetalhesReceitasComponent } from './receitas/detalhes-receitas/detalhes
 import { ItemReceitasComponent } from './receitas/lista-receitas/item-receitas/item-receitas.component';
 import { ListaComprasComponent } from './lista-compras/lista-compras.component';
 import { EditarListaComprasComponent } from './lista-compras/editar-lista-compras/editar-lista-compras.component';
+import { DropdownDirective } from './compartilhado/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { EditarListaComprasComponent } from './lista-compras/editar-lista-compra
     DetalhesReceitasComponent,
     ItemReceitasComponent,
     ListaComprasComponent,
-    EditarListaComprasComponent
+    EditarListaComprasComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
