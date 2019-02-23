@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-12">
+    <img [src]="receita.caminhoImagem" 
+    alt="{{receita.nome}}" 
+    class="img-responsive" 
+    style="max-height: 300px;">
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <h1>{{receita.nome}}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="dropdown">
+      <button type="button" class="btn btn-primary dropdown-toggle" id="acoesDeReceita" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Ações
+      </button>
+      <div class="dropdown-menu" aria-labelledby="acoesDeReceita">
+        <a class="dropdown-item" href="#">Para a lista de compras</a>
+        <a class="dropdown-item" href="#">Editar receita</a>
+        <a class="dropdown-item" href="#">Deletar receita</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    {{receita.descricao}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    Ingredientes
+  </div>
+</div>
