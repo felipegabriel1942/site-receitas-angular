@@ -1,10 +1,9 @@
-<app-header (componenteEscolhido)="onNavigate($event)"></app-header>
-<div class="container">
+<app-header></app-header>
+<div class="container" style="margin-top: 15px;">
     <div class="row">
         <div class="col-md-12">
-            <app-receitas *ngIf="componenteCarregado === 'receita'"></app-receitas>
-            <app-lista-compras *ngIf="componenteCarregado === 'lista-compras'"></app-lista-compras>
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>
-<router-outlet></router-outlet>
+

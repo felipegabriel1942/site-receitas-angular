@@ -18,6 +18,7 @@ export class ReceitasComponent implements OnInit {
     this.receitaService.receitaSelecionada.subscribe(
       (receita: Receita) => {
         this.receitaSelecionada = receita;
+
       }
     );
   }

@@ -42,9 +42,14 @@ export class ReceitasService {
   constructor(private listaComprasService: ListaComprasService) {
 
   }
-
+  // O metodo slice() nos metodos abaixo foi utilizado para criar
+  // uma cópia da lista solicitada e não comprometer a original
   getReceitas() {
     return this.receitas.slice();
+  }
+
+  getReceita(index: number) {
+    return this.receitas[index];
   }
 
   addIngredientesParaListaCompras(ingredientes: Ingrediente[]) {

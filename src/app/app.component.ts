@@ -7,9 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  componenteCarregado = 'receita';
-
-  onNavigate(componente: string) {
-    this.componenteCarregado = componente;
-  }
 }

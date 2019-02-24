@@ -13,6 +13,8 @@ import { ListaComprasComponent } from './lista-compras/lista-compras.component';
 import { EditarListaComprasComponent } from './lista-compras/editar-lista-compras/editar-lista-compras.component';
 import { DropdownDirective } from './compartilhado/dropdown.directive';
 import { ListaComprasService } from './services/lista-compras.service';
+import { ReceitaHomeComponent } from './receitas/receita-home/receita-home.component';
+import { EditarReceitaComponent } from './receitas/editar-receita/editar-receita.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ListaComprasService } from './services/lista-compras.service';
     ItemReceitasComponent,
     ListaComprasComponent,
     EditarListaComprasComponent,
-    DropdownDirective
+    DropdownDirective,
+    ReceitaHomeComponent,
+    EditarReceitaComponent
   ],
   imports: [
     BrowserModule,

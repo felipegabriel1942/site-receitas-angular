@@ -14,6 +14,8 @@ export class ListaComprasService {
     new Ingrediente('Ovos', 4)
   ];
 
+  // O metodo slice() nos metodos abaixo foi utilizado para criar
+  // uma cópia da lista solicitada e não comprometer a original
   getIngredientes() {
     return this.ingredientes.slice();
   }

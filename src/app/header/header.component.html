@@ -1,20 +1,20 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding: 0px;" >
   <div class="container">
     <a href="#" class="navbar-brand">Receitas caseiras do Felipe</a>
-      <div class="collapse navbar-collapse">
+      <div class="collapse navbar-collapse" >
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item"><a class="nav-link" href="#" (click)="onSelect('receita')">Receitas</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" (click)="onSelect('lista-compras')">Lista de compras</a></li>
+            <li class="nav-item" routerLinkActive="active fundo-menu-ativo" style="padding: 15px;"><a class="nav-link" routerLink="/receitas">Receitas</a></li>
+            <li class="nav-item" routerLinkActive="active fundo-menu-ativo" style="padding: 15px;"><a class="nav-link" routerLink="/lista-compras">Lista de compras</a></li>
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item dropdown" appDropdown>
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" style="cursor: pointer;" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Admin
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Salvar dados</a>
-                    <a class="dropdown-item" href="#">Buscar dados</a>
+                    <a class="dropdown-item" style="cursor: pointer;">Salvar dados</a>
+                    <a class="dropdown-item" style="cursor: pointer;">Buscar dados</a>
                 </div>
             </li>
         </ul>
