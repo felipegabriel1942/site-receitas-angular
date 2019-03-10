@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { ReceitasService } from 'src/app/services/receitas.service';
+
+
 
 @Component({
   selector: 'app-editar-receita',
@@ -15,7 +17,8 @@ export class EditarReceitaComponent implements OnInit {
   receitaForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
-              private receitaService: ReceitasService) { }
+              private receitaService: ReceitasService,
+              private router: Router) { }
 
   ngOnInit() {
     this.route.params
@@ -29,12 +32,16 @@ export class EditarReceitaComponent implements OnInit {
 
   getControls() {
     const controls = (<FormArray> this.receitaForm.get('ingredientes')).controls ;
-    console.log(controls);
     return controls;
   }
 
   onSubmit() {
-    console.log(this.receitaForm);
+    if (this.modoEdicao) {
+      this.receitaService.updateReceita(this.id, this.receitaForm.value);
+    } else {
+      this.receitaService.addReceitas(this.receitaForm.value);
+    }
+    this.onCancel();
   }
 
   onAddIngrediente() {
@@ -47,17 +54,21 @@ export class EditarReceitaComponent implements OnInit {
     );
   }
 
+  onCancel() {
+    this.router.navigate(['../'], {relativeTo: this.route});
+  }
+
   private initForm() {
     let nomeReceita = '';
     let caminhoImagemReceita = '';
-    let descricaoRecceita = '';
+    let descricaoReceita = '';
     const receitaIngredientes = new FormArray([]);
 
     if (this.modoEdicao) {
       const receita = this.receitaService.getReceita(this.id);
       nomeReceita = receita.nome;
       caminhoImagemReceita = receita.caminhoImagem;
-      descricaoRecceita = receita.descricao;
+      descricaoReceita = receita.descricao;
 
       if (receita['ingredientes']) {
         for (const ingrediente of receita.ingredientes) {
@@ -73,10 +84,14 @@ export class EditarReceitaComponent implements OnInit {
     }
     this.receitaForm = new FormGroup({
       nome: new FormControl(nomeReceita, Validators.required),
-      imagePath: new FormControl(caminhoImagemReceita, Validators.required),
-      descricao: new FormControl(descricaoRecceita, Validators.required),
+      descricao: new FormControl(descricaoReceita, Validators.required),
+      imagePath: new FormControl(caminhoImagemReceita, Validators.required),      
       ingredientes: receitaIngredientes
     });
+  }
+
+  onDeleteIngrediente(index: number) {
+    (<FormArray>this.receitaForm.get('ingredientes')).removeAt(index);
   }
 
 }

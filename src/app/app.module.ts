@@ -15,6 +15,7 @@ import { DropdownDirective } from './compartilhado/dropdown.directive';
 import { ListaComprasService } from './services/lista-compras.service';
 import { ReceitaHomeComponent } from './receitas/receita-home/receita-home.component';
 import { EditarReceitaComponent } from './receitas/editar-receita/editar-receita.component';
+import { ReceitasService } from './services/receitas.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { EditarReceitaComponent } from './receitas/editar-receita/editar-receita
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ListaComprasService],
+  providers: [ListaComprasService, ReceitasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

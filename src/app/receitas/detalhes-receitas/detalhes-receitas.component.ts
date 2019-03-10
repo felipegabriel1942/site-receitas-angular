@@ -21,6 +21,7 @@ export class DetalhesReceitasComponent implements OnInit {
     .subscribe((params: Params) => {
       this.id = +params['id'];
       this.receita = this.receitaService.getReceita(this.id);
+      console.log(this.receita);
     });
   }
 
@@ -30,6 +31,12 @@ export class DetalhesReceitasComponent implements OnInit {
 
   onEdicaoReceita() {
     this.router.navigate(['edicao'], {relativeTo: this.route});
+  }
+
+  onDeleteReceita() {
+    this.receitaService.deletarReceita(this.id);
+    this.router.navigate(['/receitas']);
+
   }
 
 }

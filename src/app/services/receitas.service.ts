@@ -2,11 +2,14 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Receita } from '../model/receita.model';
 import { Ingrediente } from '../model/ingrediente.model';
 import { ListaComprasService } from './lista-compras.service';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReceitasService {
+
+  receitaMudou = new Subject<Receita[]>();
 
   private receitas: Receita[] = [
     new Receita('MOLHO BRANCO PARA MACARRÃO',
@@ -52,5 +55,20 @@ export class ReceitasService {
 
   addIngredientesParaListaCompras(ingredientes: Ingrediente[]) {
     this.listaComprasService.addIngredientes(ingredientes);
+  }
+
+  addReceitas(receita: Receita) {
+    this.receitas.push(receita);
+    this.receitaMudou.next(this.receitas.slice());
+  }
+
+  updateReceita(index: number, novaReceita: Receita) {
+    this.receitas[index] = novaReceita;
+    this.receitaMudou.next(this.receitas.slice());
+  }
+
+  deletarReceita(index: number) {
+    this.receitas.splice(index, 1);
+    this.receitaMudou.next(this.receitas.slice());
   }
 }

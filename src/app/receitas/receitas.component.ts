@@ -4,8 +4,7 @@ import { ReceitasService } from '../services/receitas.service';
 @Component({
   selector: 'app-receitas',
   templateUrl: './receitas.component.html',
-  styleUrls: ['./receitas.component.css'],
-  providers: [ReceitasService]
+  styleUrls: ['./receitas.component.css']
 })
 export class ReceitasComponent implements OnInit {
 
