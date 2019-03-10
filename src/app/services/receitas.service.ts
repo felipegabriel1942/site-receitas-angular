@@ -8,8 +8,6 @@ import { ListaComprasService } from './lista-compras.service';
 })
 export class ReceitasService {
 
-  receitaSelecionada = new EventEmitter<Receita>();
-
   private receitas: Receita[] = [
     new Receita('MOLHO BRANCO PARA MACARRÃO',
     'Molho branco para servir de acompanhamento para macarrão',
